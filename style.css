@@ -41,21 +41,30 @@ body {
   color: #4a4a4a;
 }
 
-.homepage-img {
-  max-width: 280px;
-  width: 100%;
+/* === Image Style === */
+.homepage-image {
+  max-width: 100%;
   height: auto;
+  max-height: 280px;
   display: block;
   margin: 20px auto;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+@media (min-width: 1024px) {
+  .homepage-image {
+    max-height: 240px;
+  }
+}
+
 /* === Button Styles === */
-button {
+button,
+a.button {
   padding: 12px 24px;
   background-color: #8e44ad;
   color: white;
+  text-decoration: none;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
@@ -63,7 +72,8 @@ button {
   transition: background-color 0.3s;
 }
 
-button:hover {
+button:hover,
+a.button:hover {
   background-color: #732d91;
 }
 
@@ -85,7 +95,10 @@ button:hover {
   text-align: center;
 }
 
-.main-content, .calendar, .clock, .time-blocks {
+.main-content,
+.calendar,
+.clock,
+.time-blocks {
   background: linear-gradient(145deg, #fffafc, #f8f0ff);
   border-radius: 20px;
   padding: 25px;
@@ -93,11 +106,26 @@ button:hover {
   flex: 1 1 250px;
   max-width: 300px;
   transition: transform 0.3s, box-shadow 0.3s;
+  opacity: 0;
+  animation: fadeIn 0.7s ease forwards;
 }
 
-.main-content:hover, .calendar:hover, .clock:hover, .time-blocks:hover {
+.main-content:hover,
+.calendar:hover,
+.clock:hover,
+.time-blocks:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(115, 45, 145, 0.2);
+}
+
+.main-content { animation-delay: 0.1s; }
+.calendar { animation-delay: 0.2s; }
+.clock { animation-delay: 0.3s; }
+.time-blocks { animation-delay: 0.4s; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .dashboard-icon {
@@ -118,23 +146,6 @@ button:hover {
   color: #666;
   line-height: 1.5;
 }
-
-/* Optional: fade-in effect on load */
-.main-content, .calendar, .clock, .time-blocks {
-  opacity: 0;
-  animation: fadeIn 0.7s ease forwards;
-}
-
-.main-content { animation-delay: 0.1s; }
-.calendar { animation-delay: 0.2s; }
-.clock { animation-delay: 0.3s; }
-.time-blocks { animation-delay: 0.4s; }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 
 /* === Inputs & To-do list === */
 .input-wrapper {
@@ -274,7 +285,7 @@ li:hover {
     font-size: 0.9rem;
   }
 
-  .homepage-img {
+  .homepage-image {
     max-width: 90%;
   }
 
@@ -336,10 +347,6 @@ li:hover {
     margin-bottom: 30px;
   }
 
-  .homepage-img {
-    max-width: 350px;
-  }
-
   .button {
     font-size: 1.1rem;
     padding: 14px 28px;
@@ -350,32 +357,3 @@ li:hover {
     font-size: 1rem;
   }
 }
-
-.homepage-image {
-  max-width: 100%;
-  height: auto;
-  max-height: 300px; /* or whatever height fits your vibe */
-  border-radius: 12px;
-  margin-top: 20px;
-}
-
-display: block;
-margin: 0 auto;
-
-.homepage-image {
-  max-width: 100%;
-  height: auto;
-  max-height: 300px;
-  display: block;
-  margin: 20px auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-@media (min-width: 768px) {
-  .homepage-image {
-    max-height: 250px;
-  }
-}
-
-
