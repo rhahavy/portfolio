@@ -71,25 +71,70 @@ button:hover {
 .dashboard {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 30px;
-  padding: 40px 20px;
-  max-width: 1000px;
+  padding: 60px 20px;
+  max-width: 1200px;
   margin: auto;
 }
 
-.main-content, .calendar, .clock, .time-blocks {
-  background-color: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.dashboard h2 {
+  font-size: 1.5rem;
+  color: #732d91;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-.main-content {
-  flex-grow: 1;
-  min-width: 250px;
-  max-width: 350px;
+.main-content, .calendar, .clock, .time-blocks {
+  background: linear-gradient(145deg, #fffafc, #f8f0ff);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  flex: 1 1 250px;
+  max-width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.main-content:hover, .calendar:hover, .clock:hover, .time-blocks:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(115, 45, 145, 0.2);
+}
+
+.dashboard-icon {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #b07acc;
+}
+
+.dashboard-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #4a2e57;
+}
+
+.dashboard-card-content {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Optional: fade-in effect on load */
+.main-content, .calendar, .clock, .time-blocks {
+  opacity: 0;
+  animation: fadeIn 0.7s ease forwards;
+}
+
+.main-content { animation-delay: 0.1s; }
+.calendar { animation-delay: 0.2s; }
+.clock { animation-delay: 0.3s; }
+.time-blocks { animation-delay: 0.4s; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 /* === Inputs & To-do list === */
 .input-wrapper {
