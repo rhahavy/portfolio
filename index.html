@@ -61,3 +61,54 @@
   </script>
 </body>
 </html>
+<script>
+  console.log("Hello from your script.js file!");
+
+  function enterPortfolio() {
+    document.getElementById("homepage").style.display = "none";
+    document.getElementById("portfolio").style.display = "block";
+    confetti({
+      particleCount: 200,
+      spread: 100,
+      origin: { y: 0.6 },
+      colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3', '#FCEFF9']
+    });
+  }
+
+  // Glitter trail
+  document.addEventListener("mousemove", function (e) {
+    const glitter = document.createElement("div");
+    glitter.className = "glitter";
+    glitter.style.left = `${e.pageX}px`;
+    glitter.style.top = `${e.pageY}px`;
+    document.body.appendChild(glitter);
+    setTimeout(() => glitter.remove(), 600);
+  });
+
+  // Add greeting on DOM load
+  document.addEventListener("DOMContentLoaded", () => {
+    const greeting = document.createElement("p");
+    greeting.textContent = "🌟 Thanks for visiting!";
+    document.body.appendChild(greeting);
+  });
+
+  // Confetti on link click
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      confetti({
+        particleCount: 100,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3']
+      });
+    });
+  });
+
+  // Dark mode toggle (optional: add an element with id="themeToggle")
+  const toggle = document.getElementById("themeToggle");
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+  }
+</script>
