@@ -389,4 +389,13 @@ li:hover {
   margin-top: 20px;
 }
 
+.homepage img {
+  max-width: 300px;
+  width: 80%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
 
