@@ -1,62 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rhahavy’s Portfolio 💜</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-
+  <title>Rhahavy’s Portfolio 💼</title>
   <style>
     body {
       background-color: #E6E6FA;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 0;
       color: #4a4a4a;
       text-align: center;
     }
 
-    .homepage {
+    .homepage, #portfolio {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      height: 100vh;
-      background-color: #FCEFF9;
-      padding: 40px;
+      padding: 40px 20px;
+      min-height: 100vh;
     }
 
     .homepage-box {
-      background-color: white;
+      background: white;
       padding: 30px;
       border-radius: 12px;
+      max-width: 600px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
     }
 
-    .homepage-box h1 {
-      font-size: 2rem;
+    h1 {
       color: #732d91;
+      font-size: 2rem;
       margin-bottom: 10px;
     }
 
-    .homepage-box p {
+    p {
       font-size: 1.1rem;
       margin-bottom: 20px;
     }
 
-    .homepage-box img {
+    img {
       max-width: 300px;
       border-radius: 12px;
+      margin: 20px 0;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
     }
 
-    button {
+    button, a.button {
       padding: 12px 24px;
       background-color: #8e44ad;
       color: white;
@@ -65,107 +58,44 @@
       font-size: 1rem;
       cursor: pointer;
       transition: background-color 0.3s;
+      text-decoration: none;
     }
 
-    button:hover {
+    button:hover, a.button:hover {
       background-color: #732d91;
-    }
-
-    /* Portfolio content */
-    #portfolio {
-      display: none;
-      padding: 20px;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    header h1 {
-      color: #732d91;
-      margin-top: 40px;
     }
 
     .project-card {
       background: white;
-      margin: 30px auto;
       padding: 20px;
       border-radius: 12px;
+      max-width: 700px;
+      margin: 20px auto;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
-      text-align: left;
-    }
-
-    .project-card h2 {
-      color: #8e44ad;
-    }
-
-    .project-card a {
-      display: inline-block;
-      margin-top: 10px;
-      margin-right: 10px;
-      padding: 10px 14px;
-      background-color: #8e44ad;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      transition: background-color 0.3s;
-    }
-
-    .project-card a:hover {
-      background-color: #732d91;
     }
 
     footer {
       margin-top: 40px;
-      font-style: italic;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      .homepage-box,
-      .project-card {
-        max-width: 90%;
-      }
-
-      .homepage-box img {
-        max-width: 100%;
-      }
+      font-size: 0.9rem;
+      color: #777;
     }
   </style>
-
-  <script defer>
-    function enterPortfolio() {
-      document.getElementById("homepage").style.display = "none";
-      document.getElementById("portfolio").style.display = "block";
-
-      // Confetti celebration 🎉
-      confetti({
-        particleCount: 200,
-        spread: 100,
-        origin: { y: 0.6 },
-        colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3', '#FCEFF9']
-      });
-    }
-  </script>
 </head>
 <body>
-<div id="glitter" style="position: fixed; z-index: 0; width: 100vw; height: 100vh;"></div>
 
-  <!-- HOMEPAGE SECTION -->
+  <!-- HOMEPAGE -->
   <div id="homepage" class="homepage">
     <div class="homepage-box">
       <h1>🌸 Welcome to My Portfolio 🌸</h1>
-      <p>Hi! I’m Rhahavy — a front-end enthusiast passionate about clean code, calm color palettes, and delightful user experiences. This portfolio showcases projects built with HTML, CSS, and JavaScript (plus a touch of confetti magic ✨).</p>
+      <p>Welcome to my interactive portfolio! I’m Rhahavy — a front-end enthusiast passionate about clean code, calm color palettes, and meaningful user experiences.</p>
       <img src="https://i.imgur.com/AfAmRMO.jpeg" alt="Cute meme" />
+      <br />
       <button onclick="enterPortfolio()">Let’s Go →</button>
     </div>
   </div>
 
   <!-- PORTFOLIO SECTION -->
-  <div id="portfolio">
+  <div id="portfolio" style="display: none;">
     <header>
       <h1>💼 Rhahavy’s Portfolio</h1>
       <p>I build beautiful, interactive websites with HTML, CSS, and JavaScript.</p>
@@ -174,44 +104,31 @@
     <section class="project-card">
       <h2>💜 Lavender Daily Dashboard</h2>
       <p>A calming personal dashboard with a to-do list, live clock, editable schedule, and motivational quotes. Built with HTML, CSS, and JavaScript — and yes, there’s confetti when you complete your tasks 🎉</p>
-<a href="https://rhahavy.github.io/lavender-dashboard/index.html" target="_blank">🔗 View Project</a>
-      <a href="https://github.com/rhahavy/lavender-dashboard" target="_blank">🧠 View Code</a>
+      <a class="button" href="https://rhahavy.github.io/lavender-dashboard/" target="_blank">🔗 View Project</a>
+      <a class="button" href="https://github.com/rhahavy/lavender-dashboard" target="_blank" style="margin-left: 10px;">🧠 View Code</a>
     </section>
-
-    <!-- You can add more project-card sections here -->
 
     <footer>
       <p>Made with 💜 by Rhahavy Balakumar</p>
     </footer>
   </div>
-<script>
-tsParticles.load("glitter", {
-  fullScreen: { enable: false },
-  background: { color: "transparent" },
-  particles: {
-    number: { value: 50 },
-    color: { value: ["#E6E6FA", "#D8A7B1", "#FCEFF9", "#C1B2D3"] },
-    shape: { type: "circle" },
-    opacity: {
-      value: 0.8,
-      random: true
-    },
-    size: {
-      value: 3,
-      random: { enable: true, minimumValue: 1 }
-    },
-    move: {
-      enable: true,
-      speed: 0.6,
-      direction: "none",
-      random: true,
-      straight: false,
-      outModes: "out"
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    function enterPortfolio() {
+      document.getElementById("homepage").style.display = "none";
+      document.getElementById("portfolio").style.display = "flex";
+
+      // Confetti burst!
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 },
+        colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3', '#FCEFF9']
+      });
     }
-  },
-  detectRetina: true
-});
-</script>
+  </script>
 
 </body>
 </html>
