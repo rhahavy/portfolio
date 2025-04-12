@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rhahavy’s Portfolio 💜</title>
@@ -150,6 +152,7 @@
   </script>
 </head>
 <body>
+<div id="glitter" style="position: fixed; z-index: 0; width: 100vw; height: 100vh;"></div>
 
   <!-- HOMEPAGE SECTION -->
   <div id="homepage" class="homepage">
@@ -181,6 +184,34 @@
       <p>Made with 💜 by Rhahavy Balakumar</p>
     </footer>
   </div>
+<script>
+tsParticles.load("glitter", {
+  fullScreen: { enable: false },
+  background: { color: "transparent" },
+  particles: {
+    number: { value: 50 },
+    color: { value: ["#E6E6FA", "#D8A7B1", "#FCEFF9", "#C1B2D3"] },
+    shape: { type: "circle" },
+    opacity: {
+      value: 0.8,
+      random: true
+    },
+    size: {
+      value: 3,
+      random: { enable: true, minimumValue: 1 }
+    },
+    move: {
+      enable: true,
+      speed: 0.6,
+      direction: "none",
+      random: true,
+      straight: false,
+      outModes: "out"
+    }
+  },
+  detectRetina: true
+});
+</script>
 
 </body>
 </html>
