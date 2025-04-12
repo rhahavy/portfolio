@@ -3,45 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Budget Buddy</title>
+  <title>✨Rhahavy’s Portfolio✨</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    :root {
-      --primary: #8e44ad;
-      --accent: #b07acc;
-      --background: #fceff9;
-      --card: #ffffff;
-    }
-    /* [styles unchanged for brevity, assuming same as before] */
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-  <div class="dashboard">
-    <h1>💸 Budget Buddy</h1>
-    <p class="tagline">Organize your spending by category with glitter, dark mode, and charm ✨</p>
-    <button id="toggleDarkMode">Toggle Dark Mode</button>
-
-    <div class="budget-section">
-      <form id="budgetForm">
-        <input type="text" id="category" placeholder="Category (e.g. Groceries)" required />
-        <input type="number" id="limit" placeholder="Limit ($)" required />
-        <button type="submit">Add Budget</button>
-      </form>
+  <!-- HOMEPAGE -->
+  <div id="homepage" class="homepage">
+    <div class="homepage-box">
+      <h1>🌸 Welcome to My Portfolio 🌸</h1>
+      <p>Welcome to my interactive portfolio! I’m Rhahavy — a front-end enthusiast passionate about clean code, calm color palettes, and meaningful user experiences.</p>
+      <img src="https://i.imgur.com/AfAmRMO.jpeg" alt="Cute meme" class="homepage-image" />
+      <br />
+      <button onclick="enterPortfolio()">Let’s Go →</button>
     </div>
-
-    <div id="budgetList" class="budget-list"></div>
   </div>
 
+  <!-- PORTFOLIO SECTION -->
+  <div id="portfolio" style="display: none;">
+    <header>
+      <h1>Rhahavy’s Portfolio</h1>
+      <p>I build beautiful, interactive websites with HTML, CSS, and JavaScript.</p>
+    </header>
+
+    <section id="about" class="about-section">
+      <p>Let’s build something beautiful together</p>
+    </section>
+
+    <!-- ✅ Budget Buddy Project -->
+    <section class="project-card">
+      <h2>💸 Budget Buddy</h2>
+      <p>A soothing budget tracker where you can set limits and track your expenses per category. It includes dark mode, glitter effects, and responsive mobile design!</p>
+      <a class="button" href="https://rhahavy.github.io/budget-buddy/budget-tracker.html" target="_blank">🔗 View Project</a>
+      <a class="button" href="https://github.com/rhahavy/budget-buddy" target="_blank" style="margin-left: 10px;">🧠 View Code</a>
+    </section>
+
+    <!-- Lavender Dashboard -->
+    <section class="project-card">
+      <h2>💜 Lavender Daily Dashboard 💜</h2>
+      <p>A calming personal dashboard with a to-do list, live clock, editable schedule, and motivational quotes. Built with HTML, CSS, and JavaScript — and yes, there’s confetti when you complete your tasks 🎉</p>
+      <a class="button" href="https://rhahavy.github.io/lavender-dashboard/" target="_blank">🔗 View Project</a>
+      <a class="button" href="https://github.com/rhahavy/lavender-dashboard" target="_blank" style="margin-left: 10px;">🧠 View Code</a>
+    </section>
+
+    <footer>
+      <p>Made with 💕 by Rhahavy Balakumar</p>
+    </footer>
+  </div>
+
+  <!-- JS -->
   <script>
-    const budgetForm = document.getElementById("budgetForm");
-    const budgetList = document.getElementById("budgetList");
-    const toggleDarkMode = document.getElementById("toggleDarkMode");
+    function enterPortfolio() {
+      document.getElementById("homepage").style.display = "none";
+      document.getElementById("portfolio").style.display = "block";
 
-    let budgets = JSON.parse(localStorage.getItem("budgets")) || {};
-
-    toggleDarkMode.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-    });
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 },
+        colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3', '#FCEFF9']
+      });
+    }
 
     document.addEventListener("mousemove", function (e) {
       const glitter = document.createElement("div");
@@ -52,69 +74,22 @@
       setTimeout(() => glitter.remove(), 600);
     });
 
-    budgetForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const category = document.getElementById("category").value;
-      const limit = parseFloat(document.getElementById("limit").value);
-
-      if (!budgets[category]) {
-        budgets[category] = {
-          limit: limit,
-          spent: 0,
-          expenses: []
-        };
-        saveBudgets();
-        renderBudgets();
-      }
-      budgetForm.reset();
+    document.addEventListener("DOMContentLoaded", () => {
+      const greeting = document.createElement("p");
+      greeting.textContent = "🌟 Thanks for visiting!";
+      document.body.appendChild(greeting);
     });
 
-    function saveBudgets() {
-      localStorage.setItem("budgets", JSON.stringify(budgets));
-    }
-
-    function renderBudgets() {
-      budgetList.innerHTML = "";
-      for (let cat in budgets) {
-        const data = budgets[cat];
-        const percent = Math.min((data.spent / data.limit) * 100, 100);
-
-        const card = document.createElement("div");
-        card.className = "budget-card";
-
-        card.innerHTML = `
-          <h2>${cat}</h2>
-          <p>Limit: $${data.limit.toFixed(2)}</p>
-          <p>Spent: $${data.spent.toFixed(2)}</p>
-          <div class="progress">
-            <div class="progress-bar" style="width: ${percent}%"></div>
-          </div>
-          <form class="expense-form">
-            <input type="text" placeholder="Description" required />
-            <input type="number" placeholder="Amount" required />
-            <button type="submit">Add Expense</button>
-          </form>
-          <ul>
-            ${data.expenses.map(e => `<li>${e.desc} - $${e.amount.toFixed(2)}</li>`).join("")}
-          </ul>
-        `;
-
-        const expenseForm = card.querySelector(".expense-form");
-        expenseForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-          const desc = expenseForm.querySelector("input[type=text]").value;
-          const amount = parseFloat(expenseForm.querySelector("input[type=number]").value);
-          budgets[cat].spent += amount;
-          budgets[cat].expenses.push({ desc, amount });
-          saveBudgets();
-          renderBudgets();
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        confetti({
+          particleCount: 100,
+          spread: 80,
+          origin: { y: 0.6 },
+          colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3']
         });
-
-        budgetList.appendChild(card);
-      }
-    }
-
-    renderBudgets();
+      });
+    });
   </script>
 </body>
 </html>
