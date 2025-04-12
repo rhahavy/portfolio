@@ -118,6 +118,70 @@
       detectRetina: true
     });
   </script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+<script>
+  tsParticles.load("glitter", {
+    fullScreen: { enable: false },
+    background: { color: "transparent" },
+    particles: {
+      number: { value: 0 },
+      color: { value: ["#E6E6FA", "#D8A7B1", "#FCEFF9", "#C1B2D3"] },
+      shape: { type: "circle" },
+      opacity: { value: 0.6 },
+      size: { value: 3 },
+      move: {
+        enable: true,
+        speed: 1,
+        direction: "none",
+        outModes: "destroy"
+      }
+    },
+    emitters: {
+      direction: "none",
+      rate: {
+        delay: 0.1,
+        quantity: 1
+      },
+      size: {
+        width: 0,
+        height: 0
+      },
+      position: {
+        x: 50,
+        y: 50
+      },
+      particles: {
+        move: {
+          speed: 2,
+          outModes: "destroy"
+        }
+      }
+    },
+    interactivity: {
+      detectsOn: "window",
+      events: {
+        onHover: {
+          enable: true,
+          mode: "trail"
+        }
+      },
+      modes: {
+        trail: {
+          delay: 0.2,
+          quantity: 5,
+          particles: {
+            color: { value: ["#E6E6FA", "#D8A7B1", "#FCEFF9", "#C1B2D3"] },
+            move: {
+              speed: 2,
+              outModes: "destroy"
+            }
+          }
+        }
+      }
+    },
+    detectRetina: true
+  });
+</script>
 
 </body>
 </html>
