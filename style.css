@@ -220,3 +220,8 @@ li:hover {
   font-size: 0.95rem;
 }
 
+.homepage-box {
+  position: relative;
+  z-index: 2;
+}
+
