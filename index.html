@@ -2,67 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rhahavy’s Portfolio 💼</title>
   <style>
     body {
-      background-color: #f9f7f6;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #E6E6FA;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       margin: 0;
-      padding: 40px;
-    }
-
-    .project-card {
-      background-color: white;
-      border-radius: 12px;
-      padding: 20px;
-      margin: auto;
-      max-width: 600px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       text-align: center;
+      padding: 20px;
     }
 
-    .project-card h2 {
-      color: #8e44ad;
-      font-size: 1.8rem;
+    h1 {
+      font-size: 2rem;
+      color: #732d91;
     }
 
-    .project-card p {
-      font-size: 1rem;
-      color: #555;
+    p {
+      font-size: 1.1rem;
+      color: #4a4a4a;
       margin-bottom: 20px;
     }
 
-    .project-card a {
-      display: inline-block;
-      margin: 10px;
-      text-decoration: none;
-      background: #8e44ad;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      transition: background 0.3s ease;
+    img {
+      max-width: 300px;
+      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    .project-card a:hover {
-      background: #732d91;
+    a.button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #8e44ad;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    a.button:hover {
+      background-color: #732d91;
     }
   </style>
 </head>
 <body>
 
-  <div class="project-card">
-    <h2>💜 Lavender Daily Dashboard</h2>
-    <p>A calming personal dashboard with a to-do list, live clock, editable schedule, and motivational quotes. Built with HTML, CSS, and JavaScript — and yes, there’s confetti when you complete your tasks 🎉</p>
-    <a href="https://rhahavy.github.io/lavender-dashboard/" target="_blank">🔗 View Project</a>
-    <a href="https://github.com/yourusername/lavender-dashboard" target="_blank">🧠 View Code</a>
-  </div>
-<link rel="stylesheet" href="style.css" />
-  <button id="themeToggle">🌓 Toggle Theme</button>
+  <h1>👋 Welcome to My Portfolio</h1>
+  <p>I'm Rhahavy – I build beautiful, interactive websites with HTML, CSS, and JavaScript.</p>
 
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <!-- Cute Meme -->
+  <img src="https://i.imgur.com/AfAmRMO.jpeg" alt="Cute cat" />
 
+  <!-- Button to go to dashboard -->
+  <a class="button" href="dashboard.html">Enter My Dashboard →</a>
 
 </body>
 </html>
