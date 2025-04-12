@@ -362,4 +362,15 @@ li:hover {
 display: block;
 margin: 0 auto;
 
+.homepage-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
 
