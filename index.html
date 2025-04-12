@@ -3,27 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rhahavy's Portfolio 💼</title>
+  <title>Rhahavy’s Portfolio 💼</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script defer>
+    function enterPortfolio() {
+      document.getElementById("homepage").style.display = "none";
+      document.getElementById("portfolio").style.display = "block";
+
+      // Lavender confetti!
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 },
+        colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3', '#FCEFF9']
+      });
+    }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>👋 Welcome to My Portfolio</h1>
-    <p>I'm Rhahavy – I build beautiful, interactive websites with HTML, CSS, and JavaScript.</p>
-  </header>
+  <!-- HOMEPAGE -->
+  <div id="homepage" class="homepage">
+    <div class="homepage-box">
+      <h1>👋 Welcome to My Portfolio</h1>
+      <p>Get ready for a sprinkle of lavender magic!</p>
+      <img src="https://i.imgur.com/AfAmRMO.jpeg" alt="Cute meme" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+      <br />
+      <button onclick="enterPortfolio()">Let’s Go →</button>
+    </div>
+  </div>
 
-  <section class="project-card">
-    <h2>💜 Lavender Daily Dashboard</h2>
-    <p>A calming personal dashboard with a to-do list, live clock, editable schedule, and motivational quotes. Built with HTML, CSS, and JavaScript — and yes, there’s confetti when you complete your tasks 🎉</p>
-   <a href="https://rhahavy.github.io/lavender-dashboard/" target="_blank">🔗 View Project</a>
-    <a href="https://github.com/rhahavy/lavender-dashboard" target="_blank">🧠 View Code</a>
-  </section>
+  <!-- PORTFOLIO DASHBOARD -->
+  <div id="portfolio" style="display: none;">
+    <header>
+      <h1>💼 Rhahavy’s Portfolio</h1>
+      <p>I build beautiful, interactive websites with HTML, CSS, and JavaScript.</p>
+    </header>
 
-  <!-- Add more project sections below as needed -->
+    <section class="project-card">
+      <h2>💜 Lavender Daily Dashboard</h2>
+      <p>A calming personal dashboard with a to-do list, live clock, editable schedule, and motivational quotes. Built with HTML, CSS, and JavaScript — and yes, there’s confetti when you complete your tasks 🎉</p>
+      <a href="https://rhahavy.github.io/lavender-dashboard/" target="_blank">🔗 View Project</a>
+      <a href="https://github.com/rhahavy/lavender-dashboard" target="_blank">🧠 View Code</a>
+    </section>
 
-  <footer>
-    <p>Made with 💜 by Rhahavy Balakumar</p>
-  </footer>
+    <!-- Add more project cards here -->
+
+    <footer>
+      <p>Made with 💜 by Rhahavy Balakumar</p>
+    </footer>
+  </div>
 </body>
 </html>
