@@ -3,15 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rhahavy’s Portfolio 💼</title>
+  <title>Rhahavy’s Portfolio 💜</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      background-color: #E6E6FA;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      color: #4a4a4a;
+      text-align: center;
+    }
+
+    .homepage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      height: 100vh;
+      background-color: #FCEFF9;
+      padding: 40px;
+    }
+
+    .homepage-box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+    }
+
+    .homepage-box h1 {
+      font-size: 2rem;
+      color: #732d91;
+      margin-bottom: 10px;
+    }
+
+    .homepage-box p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .homepage-box img {
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #8e44ad;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #732d91;
+    }
+
+    /* Portfolio content */
+    #portfolio {
+      display: none;
+      padding: 20px;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    header h1 {
+      color: #732d91;
+      margin-top: 40px;
+    }
+
+    .project-card {
+      background: white;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .project-card h2 {
+      color: #8e44ad;
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin-top: 10px;
+      margin-right: 10px;
+      padding: 10px 14px;
+      background-color: #8e44ad;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      transition: background-color 0.3s;
+    }
+
+    .project-card a:hover {
+      background-color: #732d91;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-style: italic;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .homepage-box,
+      .project-card {
+        max-width: 90%;
+      }
+
+      .homepage-box img {
+        max-width: 100%;
+      }
+    }
+  </style>
+
   <script defer>
     function enterPortfolio() {
       document.getElementById("homepage").style.display = "none";
       document.getElementById("portfolio").style.display = "block";
 
-      // Lavender confetti!
+      // Confetti celebration 🎉
       confetti({
         particleCount: 200,
         spread: 100,
@@ -22,19 +150,19 @@
   </script>
 </head>
 <body>
-  <!-- HOMEPAGE -->
+
+  <!-- HOMEPAGE SECTION -->
   <div id="homepage" class="homepage">
     <div class="homepage-box">
-      <h1>🌸Welcome to My Portfolio🌸</h1>
-      <p>Welcome to my interactive portfolio! I’m Rhahavy — a front-end enthusiast passionate about clean code, calm color palettes, and meaningful user experiences. This space showcases my creative projects, including dashboards, web apps, and playful designs built with HTML, CSS, and JavaScript (and a bit of confetti magic 🎉).</p>
-      <img src="https://i.imgur.com/AfAmRMO.jpeg" alt="Cute meme" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-      <br />
+      <h1>🌸 Welcome to My Portfolio 🌸</h1>
+      <p>Hi! I’m Rhahavy — a front-end enthusiast passionate about clean code, calm color palettes, and delightful user experiences. This portfolio showcases projects built with HTML, CSS, and JavaScript (plus a touch of confetti magic ✨).</p>
+      <img src="https://i.imgur.com/AfAmRMO.jpeg" alt="Cute meme" />
       <button onclick="enterPortfolio()">Let’s Go →</button>
     </div>
   </div>
 
-  <!-- PORTFOLIO DASHBOARD -->
-  <div id="portfolio" style="display: none;">
+  <!-- PORTFOLIO SECTION -->
+  <div id="portfolio">
     <header>
       <h1>💼 Rhahavy’s Portfolio</h1>
       <p>I build beautiful, interactive websites with HTML, CSS, and JavaScript.</p>
@@ -47,11 +175,12 @@
       <a href="https://github.com/rhahavy/lavender-dashboard" target="_blank">🧠 View Code</a>
     </section>
 
-    <!-- Add more project cards here -->
+    <!-- You can add more project-card sections here -->
 
     <footer>
       <p>Made with 💜 by Rhahavy Balakumar</p>
     </footer>
   </div>
+
 </body>
 </html>
