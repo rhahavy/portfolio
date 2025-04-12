@@ -350,3 +350,12 @@ li:hover {
     font-size: 1rem;
   }
 }
+
+.homepage-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px; /* or whatever height fits your vibe */
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
