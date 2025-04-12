@@ -115,20 +115,23 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-  <script>
-    function enterPortfolio() {
-      document.getElementById("homepage").style.display = "none";
-      document.getElementById("portfolio").style.display = "flex";
+ <script>
+  function enterDashboard() {
+    document.getElementById("homepage").style.display = "none";
+    document.querySelector(".dashboard").style.display = "flex";
+  }
 
-      // Confetti burst!
-      confetti({
-        particleCount: 200,
-        spread: 100,
-        origin: { y: 0.6 },
-        colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3', '#FCEFF9']
-      });
-    }
-    <script>
+  // Optional: Run glitter when button is clicked
+  function sparkleConfetti() {
+    confetti({
+      particleCount: 200,
+      spread: 100,
+      origin: { y: 0.6 },
+      colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3', '#FCEFF9']
+    });
+  }
+</script>
+
   document.addEventListener("mousemove", function(e) {
     const glitter = document.createElement("div");
     glitter.className = "glitter";
