@@ -310,3 +310,24 @@ li:hover {
     width: 100%;
   }
 }
+
+.glitter {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background-color: #E6E6FA;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 6px #D8A7B1, 0 0 12px #C1B2D3;
+  opacity: 1;
+  animation: fadeOut 0.6s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
