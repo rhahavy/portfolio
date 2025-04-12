@@ -4,85 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rhahavy’s Portfolio 💼</title>
-  <style>
-    body {
-      background-color: #E6E6FA;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #4a4a4a;
-      text-align: center;
-    }
-
-    .homepage, #portfolio {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      min-height: 100vh;
-    }
-
-    .homepage-box {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      max-width: 600px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      color: #732d91;
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
-
-    img {
-      max-width: 300px;
-      border-radius: 12px;
-      margin: 20px 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    button, a.button {
-      padding: 12px 24px;
-      background-color: #8e44ad;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      text-decoration: none;
-    }
-
-    button:hover, a.button:hover {
-      background-color: #732d91;
-    }
-
-    .project-card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 700px;
-      margin: 20px auto;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-
   <!-- HOMEPAGE -->
   <div id="homepage" class="homepage">
     <div class="homepage-box">
@@ -113,39 +38,26 @@
     </footer>
   </div>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
- <script>
-  function enterDashboard() {
-    document.getElementById("homepage").style.display = "none";
-    document.querySelector(".dashboard").style.display = "flex";
-  }
+  <script>
+    function enterPortfolio() {
+      document.getElementById("homepage").style.display = "none";
+      document.getElementById("portfolio").style.display = "block";
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 },
+        colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3', '#FCEFF9']
+      });
+    }
 
-  // Optional: Run glitter when button is clicked
-  function sparkleConfetti() {
-    confetti({
-      particleCount: 200,
-      spread: 100,
-      origin: { y: 0.6 },
-      colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3', '#FCEFF9']
+    document.addEventListener("mousemove", function(e) {
+      const glitter = document.createElement("div");
+      glitter.className = "glitter";
+      glitter.style.left = `${e.pageX}px`;
+      glitter.style.top = `${e.pageY}px`;
+      document.body.appendChild(glitter);
+      setTimeout(() => glitter.remove(), 600);
     });
-  }
-</script>
-
-  document.addEventListener("mousemove", function(e) {
-    const glitter = document.createElement("div");
-    glitter.className = "glitter";
-    glitter.style.left = `${e.pageX}px`;
-    glitter.style.top = `${e.pageY}px`;
-    document.body.appendChild(glitter);
-
-    setTimeout(() => {
-      glitter.remove();
-    }, 600);
-  });
-</script>
-
   </script>
-
 </body>
 </html>
