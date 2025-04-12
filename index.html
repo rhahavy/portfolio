@@ -128,6 +128,20 @@
         colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3', '#FCEFF9']
       });
     }
+    <script>
+  document.addEventListener("mousemove", function(e) {
+    const glitter = document.createElement("div");
+    glitter.className = "glitter";
+    glitter.style.left = `${e.pageX}px`;
+    glitter.style.top = `${e.pageY}px`;
+    document.body.appendChild(glitter);
+
+    setTimeout(() => {
+      glitter.remove();
+    }, 600);
+  });
+</script>
+
   </script>
 
 </body>
