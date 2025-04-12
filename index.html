@@ -13,7 +13,7 @@
     <div class="homepage-box">
       <h1>🌸 Welcome to My Portfolio 🌸</h1>
       <p>Welcome to my interactive portfolio! I’m Rhahavy — a front-end enthusiast passionate about clean code, calm color palettes, and meaningful user experiences.</p>
-<img src="https://i.imgur.com/AfAmRMO.jpeg" alt="Cute meme" class="homepage-image" />
+      <img src="https://i.imgur.com/AfAmRMO.jpeg" alt="Cute meme" class="homepage-image" />
       <br />
       <button onclick="enterPortfolio()">Let’s Go →</button>
     </div>
@@ -27,12 +27,8 @@
     </header>
 
     <section id="about" class="about-section">
-        <p>Let’s build something beautiful together</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+      <p>Let’s build something beautiful together</p>
+    </section>
 
     <section class="project-card">
       <h2>💜Lavender Daily Dashboard💜</h2>
@@ -46,7 +42,6 @@
     </footer>
   </div>
 
-  <!-- JS -->
   <script>
     function enterPortfolio() {
       document.getElementById("homepage").style.display = "none";
@@ -60,7 +55,6 @@
       });
     }
 
-    // Glitter trail on cursor
     document.addEventListener("mousemove", function (e) {
       const glitter = document.createElement("div");
       glitter.className = "glitter";
@@ -70,14 +64,12 @@
       setTimeout(() => glitter.remove(), 600);
     });
 
-    // Greeting on page load
     document.addEventListener("DOMContentLoaded", () => {
       const greeting = document.createElement("p");
       greeting.textContent = "🌟 Thanks for visiting!";
       document.body.appendChild(greeting);
     });
 
-    // Confetti on link click
     document.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         confetti({
@@ -88,14 +80,6 @@
         });
       });
     });
-
-    // Optional: dark mode toggle
-    const toggle = document.getElementById("themeToggle");
-    if (toggle) {
-      toggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-      });
-    }
   </script>
 </body>
 </html>
