@@ -9,10 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
-  <div style="background: pink; padding: 20px; text-align: center;">
-  If you see this, the page is rendering fine!
-</div>
-
   <style>
     :root {
       --primary: #732d91;
@@ -30,28 +26,9 @@
       scroll-behavior: smooth;
     }
 
-    /* Navbar */
-    .navbar {
-      position: sticky;
-      top: 0;
-      background-color: white;
-      padding: 15px 0;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
-
-    .navbar a {
-      margin: 0 20px;
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 600;
-    }
-
-    /* Header */
     .intro {
       text-align: center;
-      padding: 80px 20px 40px;
+      padding: 40px 20px; /* reduced padding after navbar removal */
     }
 
     .intro h1 {
@@ -65,7 +42,6 @@
       margin: 20px auto;
     }
 
-    /* Project Cards */
     .project-card {
       background-color: var(--card);
       border-radius: 16px;
@@ -111,7 +87,16 @@
       background-color: #5c2480;
     }
 
-    /* Footer */
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -122,7 +107,6 @@
       border-top: 1px solid #ddd;
     }
 
-    /* Glitter Trail */
     .glitter {
       position: fixed;
       width: 6px;
@@ -166,20 +150,13 @@
 </head>
 <body>
 
-  <!-- 
-  <div class="navbar">
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-  -->
-
-  <!-- Intro -->
+  <!-- INTRO -->
   <div class="intro">
     <h1>✨ Rhahavy’s Portfolio ✨</h1>
     <p>I build beautiful, interactive websites with HTML, CSS, and JavaScript. Let’s build something magical together.</p>
   </div>
 
-  <!-- Projects Section -->
+  <!-- PROJECTS -->
   <div id="projects">
     <div class="project-card">
       <h2>💸 Budget Buddy</h2>
@@ -200,32 +177,32 @@
     </div>
   </div>
 
-  <!-- Contact Section -->
-<div id="contact" class="project-card" style="margin-top: 60px;">
-  <h2>💌 Contact Me</h2>
-  <p>Want to work together or just say hi? Fill out the form below and I’ll get back to you soon!</p>
-  
-  <form action="https://formspree.io/f/xdkeblye" method="POST">
-    <label for="name">Name</label><br />
-    <input type="text" id="name" name="name" required /><br /><br />
+  <!-- CONTACT -->
+  <div id="contact" class="project-card" style="margin-top: 60px;">
+    <h2>💌 Contact Me</h2>
+    <p>Want to work together or just say hi? Fill out the form below and I’ll get back to you soon!</p>
+    
+    <form action="https://formspree.io/f/xdkeblye" method="POST">
+      <label for="name">Name</label><br />
+      <input type="text" id="name" name="name" required /><br /><br />
 
-    <label for="email">Email</label><br />
-    <input type="email" id="email" name="email" required /><br /><br />
+      <label for="email">Email</label><br />
+      <input type="email" id="email" name="email" required /><br /><br />
 
-    <label for="message">Message</label><br />
-    <textarea id="message" name="message" rows="5" required></textarea><br /><br />
+      <label for="message">Message</label><br />
+      <textarea id="message" name="message" rows="5" required></textarea><br /><br />
 
-    <button type="submit" class="button">📬 Send Message</button>
-  </form>
-</div>
+      <button type="submit" class="button">📬 Send Message</button>
+    </form>
+  </div>
 
-<!-- Footer -->
-<footer>
-  <p>Made with 💕 by Rhahavy Balakumar</p>
-  <p>🌟 Thanks for visiting!</p>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <p>Made with 💕 by Rhahavy Balakumar</p>
+    <p>🌟 Thanks for visiting!</p>
+  </footer>
 
-  <!-- JS: Glitter + Confetti -->
+  <!-- GLITTER & CONFETTI SCRIPT -->
   <script>
     document.addEventListener("mousemove", function (e) {
       const glitter = document.createElement("div");
@@ -236,14 +213,18 @@
       setTimeout(() => glitter.remove(), 600);
     });
 
+    // Confetti only on external links
     document.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        confetti({
-          particleCount: 100,
-          spread: 80,
-          origin: { y: 0.6 },
-          colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3']
-        });
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        if (href && !href.startsWith("#")) {
+          confetti({
+            particleCount: 100,
+            spread: 80,
+            origin: { y: 0.6 },
+            colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3']
+          });
+        }
       });
     });
   </script>
