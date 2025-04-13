@@ -3,75 +3,206 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>✨Rhahavy’s Portfolio✨</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Rhahavy’s Portfolio ✨</title>
+
+  <!-- Fonts & Confetti -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
   <style>
-    @media (min-width: 768px) {
+    :root {
+      --primary: #732d91;
+      --accent: #b07acc;
+      --background: #fceff9;
+      --card: #ffffff;
+      --text: #4a4a4a;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .navbar a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Header */
+    .intro {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+
+    .intro h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+
+    .intro p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    /* Project Cards */
+    .project-card {
+      background-color: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 800px;
+      margin: 30px auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(115, 45, 145, 0.15);
+    }
+
+    .project-card h2 {
+      color: var(--primary);
+      font-size: 1.6rem;
+    }
+
+    .project-card p {
+      margin: 15px 0 20px;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .button {
+      background-color: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #5c2480;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.95rem;
+      background-color: #f8f0ff;
+      color: #555;
+      margin-top: 60px;
+      border-top: 1px solid #ddd;
+    }
+
+    /* Glitter Trail */
+    .glitter {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background-color: #E6E6FA;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      box-shadow: 0 0 6px #D8A7B1, 0 0 12px #C1B2D3;
+      opacity: 1;
+      animation: fadeOut 0.6s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(1.4);
+      }
+    }
+
+    @media (max-width: 768px) {
       .project-card {
-        margin: 0 80px;
+        margin: 20px 16px;
+      }
+
+      .intro h1 {
+        font-size: 2rem;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
-  <!-- HOMEPAGE -->
-  <div id="homepage" class="homepage">
-    <div class="homepage-box">
-      <h1>🌸 Welcome to My Portfolio 🌸</h1>
-      <p>Welcome to my interactive portfolio! I’m Rhahavy — a front-end enthusiast passionate about clean code, calm color palettes, and meaningful user experiences.</p>
-      <img src="https://i.imgur.com/AfAmRMO.jpeg" alt="Cute meme" class="homepage-image" />
-      <br />
-      <button onclick="enterPortfolio()">Let’s Go →</button>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- Intro -->
+  <div class="intro">
+    <h1>✨ Rhahavy’s Portfolio ✨</h1>
+    <p>I build beautiful, interactive websites with HTML, CSS, and JavaScript. Let’s build something magical together.</p>
+  </div>
+
+  <!-- Projects Section -->
+  <div id="projects">
+    <div class="project-card">
+      <h2>💸 Budget Buddy</h2>
+      <p>A soothing budget tracker where you can set limits and track your expenses per category. Includes dark mode, glitter, delete options, and total spending summary!</p>
+      <div class="buttons">
+        <a class="button" href="https://rhahavy.github.io/budget-buddy/" target="_blank">🔗 View Project</a>
+        <a class="button" href="https://github.com/rhahavy/budget-buddy" target="_blank">🧠 View Code</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h2>💜 Lavender Daily Dashboard</h2>
+      <p>A calming dashboard with a to-do list, live clock, editable schedule, and motivational quotes. Built with HTML, CSS, and JavaScript — and yes, there’s confetti when you complete your tasks 🎉</p>
+      <div class="buttons">
+        <a class="button" href="https://rhahavy.github.io/lavender-dashboard/" target="_blank">🔗 View Project</a>
+        <a class="button" href="https://github.com/rhahavy/lavender-dashboard" target="_blank">🧠 View Code</a>
+      </div>
     </div>
   </div>
 
-  <!-- PORTFOLIO SECTION -->
-  <div id="portfolio" style="display: none;">
-    <header>
-      <h1>Rhahavy’s Portfolio</h1>
-      <p>I build beautiful, interactive websites with HTML, CSS, and JavaScript.</p>
-    </header>
+  <!-- Footer -->
+  <footer id="contact">
+    <p>Made with 💕 by Rhahavy Balakumar</p>
+    <p>🌟 Thanks for visiting!</p>
+  </footer>
 
-    <section id="about" class="about-section">
-      <p>Let’s build something beautiful together</p>
-    </section>
-
-    <!-- ✅ Budget Buddy project -->
-    <section class="project-card">
-      <h2>💸 Budget Buddy</h2>
-      <p>A soothing budget tracker where you can set limits and track your expenses per category. Includes dark mode, glitter, delete options, and total spending summary!</p>
-      <a class="button" href="https://rhahavy.github.io/budget-buddy/" target="_blank">🔗 View Project</a>
-      <a class="button" href="https://github.com/rhahavy/budget-buddy" target="_blank" style="margin-left: 10px;">🧠 View Code</a>
-    </section>
-
-    <!-- Lavender Dashboard project -->
-    <section class="project-card">
-      <h2>💜 Lavender Daily Dashboard 💜</h2>
-      <p>A calming personal dashboard with a to-do list, live clock, editable schedule, and motivational quotes. Built with HTML, CSS, and JavaScript — and yes, there’s confetti when you complete your tasks 🎉</p>
-      <a class="button" href="https://rhahavy.github.io/lavender-dashboard/" target="_blank">🔗 View Project</a>
-      <a class="button" href="https://github.com/rhahavy/lavender-dashboard" target="_blank" style="margin-left: 10px;">🧠 View Code</a>
-    </section>
-
-    <footer>
-      <p>Made with 💕 by Rhahavy Balakumar</p>
-    </footer>
-  </div>
-
-  <!-- JS -->
+  <!-- JS: Glitter + Confetti -->
   <script>
-    function enterPortfolio() {
-      document.getElementById("homepage").style.display = "none";
-      document.getElementById("portfolio").style.display = "block";
-
-      confetti({
-        particleCount: 200,
-        spread: 100,
-        origin: { y: 0.6 },
-        colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3', '#FCEFF9']
-      });
-    }
-
     document.addEventListener("mousemove", function (e) {
       const glitter = document.createElement("div");
       glitter.className = "glitter";
@@ -79,12 +210,6 @@
       glitter.style.top = `${e.pageY}px`;
       document.body.appendChild(glitter);
       setTimeout(() => glitter.remove(), 600);
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const greeting = document.createElement("p");
-      greeting.textContent = "🌟 Thanks for visiting!";
-      document.body.appendChild(greeting);
     });
 
     document.querySelectorAll("a").forEach(link => {
@@ -98,5 +223,6 @@
       });
     });
   </script>
+
 </body>
 </html>
