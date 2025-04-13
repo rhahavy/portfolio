@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rhahavy’s Portfolio ✨</title>
-
-  <!-- Fonts & Confetti -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
@@ -13,49 +11,63 @@
     :root {
       --primary: #732d91;
       --accent: #b07acc;
-      --background: #fceff9;
+      --background: linear-gradient(to bottom right, #fceff9, #e6e6fa);
       --card: #ffffff;
       --text: #4a4a4a;
+      --glow: 0 4px 12px rgba(115, 45, 145, 0.2);
     }
 
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: var(--background);
+      background: var(--background);
       color: var(--text);
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     .intro {
       text-align: center;
-      padding: 60px 20px;
+      padding: 80px 20px 40px;
     }
 
     .intro h1 {
       font-size: 3rem;
       color: var(--primary);
-      margin-bottom: 10px;
+      background: linear-gradient(to right, #732d91, #b07acc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .intro p {
       font-size: 1.2rem;
       max-width: 600px;
+      margin: 20px auto 0;
+      opacity: 0.85;
+    }
+
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 20px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
     .project-card {
-      background-color: var(--card);
+      background: white;
       border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      padding: 32px;
-      max-width: 800px;
-      margin: 40px auto;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: var(--glow);
+      padding: 30px;
+      transition: all 0.3s ease;
+      transform: translateY(0);
     }
 
     .project-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 32px rgba(115, 45, 145, 0.2);
+      box-shadow: 0 12px 32px rgba(115, 45, 145, 0.25);
     }
 
     .project-card h2 {
@@ -65,52 +77,37 @@
     }
 
     .project-card p {
-      font-size: 1.05rem;
       line-height: 1.6;
       margin-bottom: 20px;
     }
 
     .buttons {
       display: flex;
-      flex-wrap: wrap;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
     .button {
       background: linear-gradient(to right, #732d91, #b07acc);
       color: white;
       padding: 12px 24px;
-      border: none;
       border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
-      transition: all 0.3s ease;
+      transition: 0.3s ease;
+      box-shadow: 0 3px 10px rgba(115, 45, 145, 0.1);
     }
 
     .button:hover {
-      background: linear-gradient(to right, #5c2480, #9a63bd);
+      background: linear-gradient(to right, #5c2480, #a964c2);
       transform: scale(1.05);
     }
 
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      box-sizing: border-box;
-      margin-bottom: 15px;
-    }
-
-    footer {
+    .footer {
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
       font-size: 0.95rem;
-      background-color: #f8f0ff;
       color: #555;
-      margin-top: 60px;
-      border-top: 1px solid #ddd;
     }
 
     .glitter {
@@ -133,18 +130,21 @@
       }
     }
 
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 768px) {
-      .project-card {
-        margin: 20px 16px;
-      }
-
-      .intro h1 {
-        font-size: 2rem;
-      }
-
       .buttons {
         flex-direction: column;
-        align-items: stretch;
+        gap: 10px;
       }
 
       .button {
@@ -154,19 +154,20 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- INTRO -->
   <div class="intro">
-    <h1>✨ Rhahavy’s Portfolio ✨</h1>
-    <p>I build beautiful, interactive websites with HTML, CSS, and JavaScript. Let’s build something magical together.</p>
+    <h1>✨ Rhahavy’s Portfolio</h1>
+    <p>Creative technologist building aesthetic, interactive experiences with code, design, and glitter confetti.</p>
   </div>
 
   <!-- PROJECTS -->
-  <div id="projects">
+  <div class="projects">
     <div class="project-card">
       <h2>💸 Budget Buddy</h2>
-      <p>A soothing budget tracker where you can set limits and track your expenses per category. Includes dark mode, glitter, delete options, and total spending summary!</p>
+      <p>A soothing budget tracker where you can set limits and track your expenses per category. Includes dark mode, glitter, delete options, and total spending summary.</p>
       <div class="buttons">
         <a class="button" href="https://rhahavy.github.io/budget-buddy/" target="_blank">🔗 View Project</a>
         <a class="button" href="https://github.com/rhahavy/budget-buddy" target="_blank">🧠 View Code</a>
@@ -183,26 +184,13 @@
     </div>
   </div>
 
-  <!-- CONTACT -->
-  <div id="contact" class="project-card" style="margin-top: 60px;">
-    <h2>💌 Contact Me</h2>
-    <p>Want to work together or just say hi? Fill out the form below and I’ll get back to you soon!</p>
-    
-    <form action="https://formspree.io/f/xdkeblye" method="POST">
-      <input type="text" id="name" name="name" placeholder="Your name" required />
-      <input type="email" id="email" name="email" placeholder="Your email" required />
-      <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
-      <button type="submit" class="button">📬 Send Message</button>
-    </form>
-  </div>
-
   <!-- FOOTER -->
-  <footer>
+  <div class="footer">
     <p>Made with 💕 by Rhahavy Balakumar</p>
     <p>🌟 Thanks for visiting!</p>
-  </footer>
+  </div>
 
-  <!-- GLITTER & CONFETTI SCRIPT -->
+  <!-- Glitter Trail Script -->
   <script>
     document.addEventListener("mousemove", function (e) {
       const glitter = document.createElement("div");
