@@ -3,25 +3,123 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>✨Rhahavy’s Portfolio✨</title>
+  <title>✨ Rhahavy’s Portfolio ✨</title>
 
+  <!-- Fonts & Particles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root {
+      --primary: #732d91;
+      --accent: #b07acc;
+      --background: #fceff9;
+      --card: #ffffff;
+      --text: #4a4a4a;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    #glitter {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      z-index: 0;
+    }
+
+    .homepage {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card {
+      background-color: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      width: 90%;
+      position: relative;
+    }
+
+    .hero-card h1 {
+      font-size: 2.3rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .hero-card p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .hero-image {
+      max-width: 100%;
+      border-radius: 16px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-button {
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 26px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #5e2480;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .hero-card h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-card p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Glitter Background -->
+  <!-- Particle Background -->
   <div id="glitter"></div>
 
-  <!-- Main Content -->
-  <div class="content">
-    <h1>👋 Welcome to My Portfolio</h1>
-    <p>I'm Rhahavy – I build beautiful, interactive websites with HTML, CSS, and JavaScript.</p>
-    <img src="https://i.imgur.com/AfAmRMO.jpeg" alt="Cute meme" class="homepage-image" />
-    <a class="button" href="index.html">Enter My Dashboard →</a>
+  <!-- Homepage Content -->
+  <div class="homepage">
+    <div class="hero-card">
+      <h1>🌸 Welcome to My Portfolio 🌸</h1>
+      <p>Welcome to my interactive portfolio! I’m Rhahavy — a front-end enthusiast passionate about clean code, calm color palettes, and meaningful user experiences.</p>
+      <img src="https://i.imgur.com/AfAmRMO.jpeg" alt="Orange Cat Stretching" class="hero-image" />
+      <a class="cta-button" href="index.html">✨ Let’s Go →</a>
+    </div>
   </div>
 
-  <!-- Glitter Config -->
+  <!-- Particle Config -->
   <script>
     tsParticles.load("glitter", {
       fullScreen: { enable: false },
@@ -30,11 +128,11 @@
         number: { value: 60 },
         color: { value: ["#E6E6FA", "#D8A7B1", "#FCEFF9", "#C1B2D3"] },
         shape: { type: "circle" },
-        opacity: { value: 0.6, random: true },
+        opacity: { value: 0.5, random: true },
         size: { value: 2.5, random: { enable: true, minimumValue: 1 } },
         move: {
           enable: true,
-          speed: 0.8,
+          speed: 0.6,
           direction: "none",
           random: true,
           outModes: "out"
@@ -43,5 +141,6 @@
       detectRetina: true
     });
   </script>
+
 </body>
 </html>
