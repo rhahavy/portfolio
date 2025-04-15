@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rhahavy’s Portfolio ✨</title>
+  <title>✨Rhahavy’s Portfolio✨</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
@@ -24,6 +24,7 @@
       color: var(--text);
       scroll-behavior: smooth;
       overflow-x: hidden;
+      padding-bottom: 40px;
     }
 
     .intro {
@@ -83,6 +84,7 @@
 
     .buttons {
       display: flex;
+      justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
     }
@@ -144,12 +146,19 @@
     @media (max-width: 768px) {
       .buttons {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+        align-items: stretch;
       }
 
       .button {
         width: 100%;
         text-align: center;
+        padding: 14px 20px;
+        font-size: 1rem;
+      }
+
+      .project-card {
+        padding: 24px;
       }
     }
   </style>
@@ -159,20 +168,20 @@
 
   <!-- INTRO -->
   <div class="intro">
-    <h1>✨ Rhahavy’s Portfolio</h1>
+    <h1>✨Rhahavy’s Portfolio✨</h1>
     <p>Creative technologist building aesthetic, interactive experiences with code, design, and glitter confetti.</p>
   </div>
 
   <!-- PROJECTS -->
   <div class="projects">
-      <div class="project-card">
-  <h2>🏋️‍♀️ Gym Tracker</h2>
-  <p>A clean, interactive fitness tracker with task scheduling, quote-of-the-day, and saved workout logs.</p>
-   <div class="buttons">
+    <div class="project-card">
+      <h2>🏋️‍♀️ Gym Tracker</h2>
+      <p>A clean, interactive fitness tracker with task scheduling, quote-of-the-day, and saved workout logs.</p>
+      <div class="buttons">
         <a class="button" href="https://rhahavy.github.io/sweat-syntax/" target="_blank">🔗 View Live</a>
         <a class="button" href="https://github.com/rhahavy/sweat-syntax" target="_blank">📂 Source Code</a>
-            </div>
-              </div>
+      </div>
+    </div>
 
     <div class="project-card">
       <h2>💸 Budget Buddy</h2>
@@ -207,23 +216,3 @@
       glitter.style.left = `${e.pageX}px`;
       glitter.style.top = `${e.pageY}px`;
       document.body.appendChild(glitter);
-      setTimeout(() => glitter.remove(), 600);
-    });
-
-    document.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", (e) => {
-        const href = link.getAttribute("href");
-        if (href && !href.startsWith("#")) {
-          confetti({
-            particleCount: 100,
-            spread: 80,
-            origin: { y: 0.6 },
-            colors: ['#E6E6FA', '#D8A7B1', '#C1B2D3']
-          });
-        }
-      });
-    });
-  </script>
-
-</body>
-</html>
